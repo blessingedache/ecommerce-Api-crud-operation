@@ -27,6 +27,17 @@ app.use(express.json());
 import productRoutes from "./src/routers/productRouters.js";
 import authRoutes from "./src/routers/authRouter.js";
 
+app.get("/", (req, res) => {
+    res.json({
+        message: "Welcome to the E-commerce API 🛒",
+        status: "Server is running",
+        endpoints: {
+            auth: "/api/v1/register, /api/v1/login",
+            products: "/api/v1"
+        }
+    });
+});
+
 app.use("/api/v1", authRoutes);
 app.use("/api/v1", productRoutes);
 
